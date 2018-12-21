@@ -1,0 +1,20 @@
+PODS:
+  - FSPagerView (0.8.1)
+  - PageMenu (2.0.0)
+
+DEPENDENCIES:
+  - FSPagerView
+  - PageMenu
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FSPagerView
+    - PageMenu
+
+SPEC CHECKSUMS:
+  FSPagerView: 4e865526acc0b0e3077e2abb29b8d10a9f395476
+  PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
+
+PODFILE CHECKSUM: 57246a488e4e75765ac68e4a384a5240540b7fdc
+
+COCOAPODS: 1.6.0.beta.2
