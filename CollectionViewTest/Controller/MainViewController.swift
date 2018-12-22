@@ -142,7 +142,8 @@ class MainViewController: UIViewController {
             //menu高度
             CAPSPageMenuOption.menuHeight(60),
             //item居中
-            CAPSPageMenuOption.centerMenuItems(true)
+            CAPSPageMenuOption.centerMenuItems(true),
+            CAPSPageMenuOption.menuItemFont(UIFont.systemFont(ofSize: 17))
         ]
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0 , y: safeAreaHeight_Top + 44.0, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
         
