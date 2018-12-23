@@ -25,6 +25,8 @@
 		0B2DDB5F21CCDB75006A0058 /* PagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2DDB5E21CCDB75006A0058 /* PagerViewCell.swift */; };
 		0B2DDB6121CDEB63006A0058 /* HotSaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2DDB6021CDEB63006A0058 /* HotSaleCell.swift */; };
 		0B2DDB8321CE33E6006A0058 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2DDB8221CE33E6006A0058 /* CustomLabel.swift */; };
+		0B2DDB8521CF3896006A0058 /* NewSongsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2DDB8421CF3896006A0058 /* NewSongsCell.swift */; };
+		0B2DDB8721CF7914006A0058 /* NewestAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2DDB8621CF7914006A0058 /* NewestAlbumCell.swift */; };
 		DFFCCF4C334B198107C1E98B /* Pods_CollectionViewTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC5519E81998989761D86A6 /* Pods_CollectionViewTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		0B2DDB5E21CCDB75006A0058 /* PagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewCell.swift; sourceTree = "<group>"; };
 		0B2DDB6021CDEB63006A0058 /* HotSaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSaleCell.swift; sourceTree = "<group>"; };
 		0B2DDB8221CE33E6006A0058 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		0B2DDB8421CF3896006A0058 /* NewSongsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSongsCell.swift; sourceTree = "<group>"; };
+		0B2DDB8621CF7914006A0058 /* NewestAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewestAlbumCell.swift; sourceTree = "<group>"; };
 		19CFA2E228550C4C5949AA1A /* Pods-CollectionViewTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollectionViewTest.debug.xcconfig"; path = "Target Support Files/Pods-CollectionViewTest/Pods-CollectionViewTest.debug.xcconfig"; sourceTree = "<group>"; };
 		5FC5519E81998989761D86A6 /* Pods_CollectionViewTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollectionViewTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1978F57419896316251B37 /* Pods-CollectionViewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollectionViewTest.release.xcconfig"; path = "Target Support Files/Pods-CollectionViewTest/Pods-CollectionViewTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				0B101DAC21C8A76D00654D00 /* AlbumCell.swift */,
 				0B2DDB5E21CCDB75006A0058 /* PagerViewCell.swift */,
 				0B2DDB6021CDEB63006A0058 /* HotSaleCell.swift */,
+				0B2DDB8421CF3896006A0058 /* NewSongsCell.swift */,
+				0B2DDB8621CF7914006A0058 /* NewestAlbumCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -294,11 +300,13 @@
 				0B101DA721C761F100654D00 /* ViewController.swift in Sources */,
 				0B2DDB6121CDEB63006A0058 /* HotSaleCell.swift in Sources */,
 				0B2DDB5A21CCA486006A0058 /* TestController2.swift in Sources */,
+				0B2DDB8521CF3896006A0058 /* NewSongsCell.swift in Sources */,
 				0B2DDB4D21CB7D8E006A0058 /* ListView.swift in Sources */,
 				0B101D9521C75CF700654D00 /* AppDelegate.swift in Sources */,
 				0B2DDB4B21CB7CF7006A0058 /* GrayBackgroundView.swift in Sources */,
 				0B2DDB4921CB3893006A0058 /* CustomNavController.swift in Sources */,
 				0B2DDB5121CB969C006A0058 /* OptionButton_StackView.swift in Sources */,
+				0B2DDB8721CF7914006A0058 /* NewestAlbumCell.swift in Sources */,
 				0B101DAD21C8A76D00654D00 /* AlbumCell.swift in Sources */,
 				0B2DDB5F21CCDB75006A0058 /* PagerViewCell.swift in Sources */,
 				0B2DDB5321CC9418006A0058 /* OptionButton.swift in Sources */,
