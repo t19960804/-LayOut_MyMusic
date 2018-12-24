@@ -86,7 +86,7 @@ class TestController1: UIViewController{
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 4
         layout.minimumLineSpacing = 4
-        layout.itemSize = CGSize(width: (self.view.frame.width - 8) / 2.5, height: (160 - 4) / 1.9)
+        layout.itemSize = CGSize(width: (self.view.frame.width - 8) / 2.5, height: (160 - 4) / 2)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(NewestAlbumCell.self, forCellWithReuseIdentifier: newestAlbumCellID)
