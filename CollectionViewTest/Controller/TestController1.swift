@@ -15,6 +15,7 @@ class TestController1: UIViewController{
     let hotSaleCellID = "Cell"
     let newSongsCellID = "NewSongCell"
     let newestAlbumCellID = "NewestAlbumCell"
+    let specialAlbumCellID = "SpecialAlbumCell"
     //
     let albumArray_Roulette = ["gem_Album2","bigbang_Album","blackPink_Album","mayday_Album"]
     //
@@ -28,11 +29,22 @@ class TestController1: UIViewController{
     //
     let style_NewsetAlbum = ["國語","日語","台語","電視","古典","西洋","韓語","粵語","電影","爵士"]
     let albumArray_NewsetAlbum = ["國語專輯","日語專輯","台語專輯","電視專輯","古典專輯","西洋專輯","韓語專輯","粵語專輯","電影專輯","爵士專輯"]
+    //
+    let albumArray_Special = ["hsie_Album","xmas_Album1","xmas_Album2","xmas_Album3","xmas_Album4"]
+    let albumName_Special = ["friDay音樂 明星DJ合集大精選","聖誕節有我陪著你","記憶聖誕-最有過節氣氛的歌曲","節巷 / 無雪的我們","聖誕節必聽經典"]
+    
+    
+    let hotSale_Label = CustomLabel(content: "熱門推薦", fontSize: 18)
+    let newestAlbum_Label = CustomLabel(content: "最新專輯", fontSize: 18)
+    let specialAlbum_Label = CustomLabel(content: "精選歌單", fontSize: 18)
+    let moreLabel_1 = CustomLabel(content: "更多", fontSize: 18)
+    let moreLabel_2 = CustomLabel(content: "更多", fontSize: 18)
+    
     
     lazy var myScrollView: UIScrollView = {
         let scrollView = UIScrollView(frame:self.view.frame)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.contentSize = CGSize(width:self.view.frame.width , height: 1300)
+        scrollView.contentSize = CGSize(width:self.view.frame.width , height: 1500)
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.bounces = false
@@ -51,16 +63,13 @@ class TestController1: UIViewController{
         view.automaticSlidingInterval = 5
         return view
     }()
-    let hotSale_Label = CustomLabel(content: "熱門推薦", fontSize: 18)
-    let newestAlbum_Label = CustomLabel(content: "最新專輯", fontSize: 18)
-    let moreLabel = CustomLabel(content: "更多", fontSize: 18)
+    
+    
     
     lazy var hotSaleCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 5
-        //如果collectionView有左右Anchor,還會加上這邊的值
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: (self.view.frame.width - 14 - 10) / 2.5, height: (self.view.frame.width - 14 - 10) / 1.9)
+        layout.itemSize = CGSize(width: (self.view.frame.width - 10) / 2.5, height: (self.view.frame.width - 10) / 1.9)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -77,17 +86,32 @@ class TestController1: UIViewController{
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 4
         layout.minimumLineSpacing = 4
-        layout.itemSize = CGSize(width: (self.view.frame.width - 0 - 16) / 2.5, height: (160 - 0 - 4) / 2)
+        layout.itemSize = CGSize(width: (self.view.frame.width - 8) / 2.5, height: (160 - 4) / 1.9)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(NewestAlbumCell.self, forCellWithReuseIdentifier: newestAlbumCellID)
-        collectionView.backgroundColor = UIColor(red: 239 / 255, green: 236 / 255, blue: 234 / 255, alpha: 1)
+        collectionView.backgroundColor = backGroundGray
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.bounces = false
         collectionView.tag = 1
         return collectionView
         
+    }()
+    lazy var specialAlbumCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 5
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: (self.view.frame.width - 10) / 2.5, height: (self.view.frame.width - 10) / 1.9)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.white
+        collectionView.register(SpecialAlbumCell.self, forCellWithReuseIdentifier: specialAlbumCellID)
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.bounces = false
+        collectionView.tag = 2
+        return collectionView
     }()
     lazy var newSongTableView: UITableView = {
         let tableView = UITableView()
@@ -98,7 +122,7 @@ class TestController1: UIViewController{
     let backGround_NewestAlbum: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(red: 239 / 255, green: 236 / 255, blue: 234 / 255, alpha: 1)
+        view.backgroundColor = backGroundGray
         return view
     }()
     override func viewDidLoad() {
@@ -111,6 +135,9 @@ class TestController1: UIViewController{
         newSongTableView.dataSource = self
         newestAlbumCollectionView.delegate = self
         newestAlbumCollectionView.dataSource = self
+        specialAlbumCollectionView.delegate = self
+        specialAlbumCollectionView.dataSource = self
+        
         
         self.view.addSubview(myScrollView)
         myScrollView.addSubview(backGroundView)
@@ -120,30 +147,29 @@ class TestController1: UIViewController{
         backGroundView.addSubview(newSongTableView)
         backGroundView.addSubview(backGround_NewestAlbum)
         backGroundView.addSubview(newestAlbum_Label)
-        backGroundView.addSubview(moreLabel)
+        backGroundView.addSubview(moreLabel_1)
         backGroundView.addSubview(newestAlbumCollectionView)
+        backGroundView.addSubview(specialAlbum_Label)
+        backGroundView.addSubview(moreLabel_2)
+        backGroundView.addSubview(specialAlbumCollectionView)
         
+        setUpScrollView()
         setUpPagerView()
-        setUpHotSaleLabel()
-        setUpAlbumCollectionView()
+        setUpHotSaleAlbumCollectionView()
         setUpNewSongTableView()
         setUpNewestAlbumCollectionView()
-        
-        ////////////////////////////////////////
-        ////////////////////////////////////////
-
-       
-        
+        setUpSpecialAlbumCollectionView()
+    }
+    func setUpScrollView(){
         myScrollView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         myScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         myScrollView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         myScrollView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         
         backGroundView.widthAnchor.constraint(equalTo: myScrollView.widthAnchor).isActive = true
-        backGroundView.heightAnchor.constraint(equalToConstant: 1300 ).isActive = true
+        backGroundView.heightAnchor.constraint(equalToConstant: 1500 ).isActive = true
         backGroundView.topAnchor.constraint(equalTo: myScrollView.topAnchor, constant: -safeAreaHeight_Top).isActive = true
         backGroundView.centerXAnchor.constraint(equalTo: myScrollView.centerXAnchor).isActive = true
-        
     }
     func setUpPagerView(){
         pagerView.topAnchor.constraint(equalTo: backGroundView.topAnchor).isActive = true
@@ -151,11 +177,11 @@ class TestController1: UIViewController{
         pagerView.rightAnchor.constraint(equalTo: backGroundView.rightAnchor,constant: -7).isActive = true
         pagerView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.25).isActive = true
     }
-    func setUpHotSaleLabel(){
+    func setUpHotSaleAlbumCollectionView(){
+        
         hotSale_Label.topAnchor.constraint(equalTo: pagerView.bottomAnchor, constant: 15).isActive = true
         hotSale_Label.leftAnchor.constraint(equalTo: pagerView.leftAnchor).isActive = true
-    }
-    func setUpAlbumCollectionView(){
+        
         hotSaleCollectionView.topAnchor.constraint(equalTo: hotSale_Label.bottomAnchor, constant: 10).isActive = true
         hotSaleCollectionView.leftAnchor.constraint(equalTo: pagerView.leftAnchor).isActive = true
         hotSaleCollectionView.rightAnchor.constraint(equalTo: pagerView.rightAnchor).isActive = true
@@ -177,13 +203,25 @@ class TestController1: UIViewController{
         newestAlbum_Label.leftAnchor.constraint(equalTo: pagerView.leftAnchor).isActive = true
 
         
-        moreLabel.topAnchor.constraint(equalTo: newestAlbum_Label.topAnchor).isActive = true
-        moreLabel.rightAnchor.constraint(equalTo: pagerView.rightAnchor).isActive = true
+        moreLabel_1.topAnchor.constraint(equalTo: newestAlbum_Label.topAnchor).isActive = true
+        moreLabel_1.rightAnchor.constraint(equalTo: pagerView.rightAnchor).isActive = true
         
         newestAlbumCollectionView.topAnchor.constraint(equalTo: newestAlbum_Label.bottomAnchor, constant: 10).isActive = true
         newestAlbumCollectionView.leftAnchor.constraint(equalTo: backGroundView.leftAnchor).isActive = true
         newestAlbumCollectionView.rightAnchor.constraint(equalTo: backGroundView.rightAnchor).isActive = true
         newestAlbumCollectionView.heightAnchor.constraint(equalToConstant: 160).isActive = true
+    }
+    func setUpSpecialAlbumCollectionView(){
+        specialAlbum_Label.topAnchor.constraint(equalTo: backGround_NewestAlbum.bottomAnchor, constant: 15).isActive = true
+        specialAlbum_Label.leftAnchor.constraint(equalTo: pagerView.leftAnchor).isActive = true
+        
+        moreLabel_2.topAnchor.constraint(equalTo: specialAlbum_Label.topAnchor).isActive = true
+        moreLabel_2.rightAnchor.constraint(equalTo: pagerView.rightAnchor).isActive = true
+        
+        specialAlbumCollectionView.topAnchor.constraint(equalTo: specialAlbum_Label.bottomAnchor, constant: 10).isActive = true
+        specialAlbumCollectionView.leftAnchor.constraint(equalTo: pagerView.leftAnchor).isActive = true
+        specialAlbumCollectionView.rightAnchor.constraint(equalTo: pagerView.rightAnchor).isActive = true
+        specialAlbumCollectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.23).isActive = true
     }
 }
 
@@ -200,26 +238,40 @@ extension TestController1: FSPagerViewDataSource,FSPagerViewDelegate,UICollectio
         cell.albumImageView.image = UIImage(named: albumArray_Roulette[index])
         return cell
     }
-    //MARK: - 熱門推薦CollecitonView
+    //MARK: - CollecitonView處理
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView.tag == 0{
+        
+        let tag = collectionView.tag
+        switch tag {
+        case 0:
             return albumArray_HotSale.count
-        }else{
-            return 10
+        case 1:
+            return albumArray_NewsetAlbum.count
+        case 2:
+            return albumArray_Special.count
+        default:
+            return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView.tag == 0{
+        
+        let tag = collectionView.tag
+        if tag == 0{
             let cell = hotSaleCollectionView.dequeueReusableCell(withReuseIdentifier: hotSaleCellID, for: indexPath) as! HotSaleCell
             cell.albumImageView.image = UIImage(named: albumArray_HotSale[indexPath.row])
             cell.albumNameLabel.text = albumName_HotSale[indexPath.row]
             cell.singerNameLabel.text = singerName_HotSale[indexPath.row]
             return cell
-        }else{
+        }else if tag == 1{
             let cell = newestAlbumCollectionView.dequeueReusableCell(withReuseIdentifier: newestAlbumCellID, for: indexPath) as! NewestAlbumCell
             cell.styleLabel.text = style_NewsetAlbum[indexPath.row]
             cell.albumImageView.image = UIImage(named: albumArray_NewsetAlbum[indexPath.row])
+            return cell
+        }else{
+            let cell = specialAlbumCollectionView.dequeueReusableCell(withReuseIdentifier: specialAlbumCellID, for: indexPath) as! SpecialAlbumCell
+            cell.albumImageView.image = UIImage(named: albumArray_Special[indexPath.row])
+            cell.albumNameLabel.text = albumName_Special[indexPath.row]
             return cell
         }
        

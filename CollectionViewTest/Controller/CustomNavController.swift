@@ -9,6 +9,7 @@
 import UIKit
 
 let themeColor = UIColor(red: 163/255, green: 63/255, blue: 162/255, alpha: 1)
+let backGroundGray = UIColor(red: 239 / 255, green: 236 / 255, blue: 234 / 255, alpha: 1)
 class CustomNavController: UINavigationController {
     
     override func viewDidLoad() {
