@@ -125,6 +125,9 @@ class TestController1: UIViewController{
         view.backgroundColor = backGroundGray
         return view
     }()
+    override func viewWillAppear(_ animated: Bool) {
+        //self.view.frame = CGRect(x: 0, y: 100, width: self.view.frame.width, height: self.view.frame.height)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         pagerView.delegate = self
