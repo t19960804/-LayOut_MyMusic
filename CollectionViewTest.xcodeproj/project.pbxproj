@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B0A5E7E21D875BF00B38380 /* HotRankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A5E7D21D875BF00B38380 /* HotRankCell.swift */; };
+		0B0CE3B921DA03B200B799E8 /* RecommandSongsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0CE3B821DA03B200B799E8 /* RecommandSongsCell.swift */; };
 		0B101D9521C75CF700654D00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B101D9421C75CF700654D00 /* AppDelegate.swift */; };
 		0B101D9A21C75CF700654D00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B101D9821C75CF700654D00 /* Main.storyboard */; };
 		0B101D9C21C75CFA00654D00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B101D9B21C75CFA00654D00 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		0B0A5E7D21D875BF00B38380 /* HotRankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotRankCell.swift; sourceTree = "<group>"; };
+		0B0CE3B821DA03B200B799E8 /* RecommandSongsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandSongsCell.swift; sourceTree = "<group>"; };
 		0B101D9121C75CF700654D00 /* CollectionViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B101D9421C75CF700654D00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B101D9921C75CF700654D00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				0B2DDB8621CF7914006A0058 /* NewestAlbumCell.swift */,
 				0B2DDB8821D08F34006A0058 /* SpecialAlbumCell.swift */,
 				0B0A5E7D21D875BF00B38380 /* HotRankCell.swift */,
+				0B0CE3B821DA03B200B799E8 /* RecommandSongsCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				0B2DDB6121CDEB63006A0058 /* HotSaleCell.swift in Sources */,
 				0B2DDB5A21CCA486006A0058 /* TestController2.swift in Sources */,
 				0B2DDB8521CF3896006A0058 /* NewSongsCell.swift in Sources */,
+				0B0CE3B921DA03B200B799E8 /* RecommandSongsCell.swift in Sources */,
 				0B2DDB4D21CB7D8E006A0058 /* ListView.swift in Sources */,
 				0B101D9521C75CF700654D00 /* AppDelegate.swift in Sources */,
 				0B2DDB4B21CB7CF7006A0058 /* GrayBackgroundView.swift in Sources */,

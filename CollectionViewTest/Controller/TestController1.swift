@@ -69,7 +69,7 @@ class TestController1: UIViewController{
     lazy var hotSaleCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: (self.view.frame.width - 10) / 2.5, height: (self.view.frame.width - 10) / 1.9)
+        layout.itemSize = CGSize(width: (self.view.frame.width - 10) / 2.5, height: (self.view.frame.width - 10) / 1.8)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -171,7 +171,7 @@ class TestController1: UIViewController{
         
         backGroundView.widthAnchor.constraint(equalTo: myScrollView.widthAnchor).isActive = true
         backGroundView.heightAnchor.constraint(equalToConstant: 1500 ).isActive = true
-        backGroundView.topAnchor.constraint(equalTo: myScrollView.topAnchor, constant: -safeAreaHeight_Top).isActive = true
+        backGroundView.topAnchor.constraint(equalTo: myScrollView.topAnchor).isActive = true
         backGroundView.centerXAnchor.constraint(equalTo: myScrollView.centerXAnchor).isActive = true
     }
     func setUpPagerView(){
